@@ -1,5 +1,5 @@
-//Name: 
-//Student# : 
+//Name: Ray Zhang,
+//Student# : A01288597,
 
 #include <iostream>
 
