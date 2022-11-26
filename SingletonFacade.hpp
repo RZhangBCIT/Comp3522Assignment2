@@ -1,0 +1,14 @@
+//
+// Created by rzhan on 2022-11-25.
+//
+
+#ifndef LAB1TEMPLATE_SINGLETONFACADE_HPP
+#define LAB1TEMPLATE_SINGLETONFACADE_HPP
+
+
+class SingletonFacade {
+
+};
+
+
+#endif //LAB1TEMPLATE_SINGLETONFACADE_HPP
