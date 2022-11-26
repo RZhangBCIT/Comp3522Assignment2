@@ -60,9 +60,9 @@ bool City::operator==(City &city) {
 
 bool City::operator!=(City &city) {
     if (*this == city) {
-        return true;
-    } else {
         return false;
+    } else {
+        return true;
     }
 }
 
