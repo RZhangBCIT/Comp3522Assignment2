@@ -21,6 +21,7 @@ void SingletonFacade::report(Tour &newTour, Tour &oldTour, double distance, int 
 
 void SingletonFacade::finalReport(Tour &final, Tour &initial, int iterations) {
     cout << "Iterations complete!" << endl << "Final Results: " << endl;
+    cout << "Total iterations: " << iterations << endl;
     if (final.getFitness() > fitness) {
         cout << "Fitness target achieved!" << endl;
         cout << "Initial fitness: " << initial.getFitness() << endl;
