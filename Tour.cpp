@@ -20,7 +20,7 @@ Tour::Tour(const Tour &other) {
 }
 
 void Tour::checkFitness() {
-    fitness = 1/getDistance();
+    fitness = 1/(getDistance()/1000);
 }
 
 double Tour::getDistance() {

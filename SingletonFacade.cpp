@@ -20,11 +20,21 @@ void SingletonFacade::report(Tour &newTour, Tour &oldTour, double distance, int 
 }
 
 void SingletonFacade::finalReport(Tour &final, Tour &initial, int iterations) {
-    report(final, initial, initial.getDistance(), iterations);
     cout << "Iterations complete!" << endl << "Final Results: " << endl;
-    cout << "Fitness target achieved: " << boolalpha << (fitness <= final.getFitness()) << endl;
-    cout << "Best tour: " << final << endl;
+    if (final.getFitness() > fitness) {
+        cout << "Fitness target achieved!" << endl;
+        cout << "Initial fitness: " << initial.getFitness() << endl;
+        cout << "Fitness threshold: " << fitness << endl;
+        cout << "New fitness: " << final.getFitness() << endl;
+    } else {
+        cout << "Failed to find new fittest Tour." << endl;
+        cout << "Fitness target: " << fitness << endl;
+        cout << "Closest fitness level found: " << final.getFitness() << endl;
+    }
+    cout << "==========================" << endl;
     cout << "Initial tour: " << initial << endl;
+    cout << "==========================" << endl;
+    cout << "Best tour: " << final << endl;
 }
 
 void SingletonFacade::generateTours(int tourNum) {
@@ -44,7 +54,6 @@ void SingletonFacade::getBestTour() {
     double baseDistance = base.getDistance();
     Tour currentElite = base;
     int iterations = 0;
-
     while (currentElite.getFitness() < fitness && iterations < ITERATIONS) {
         manager.improve();
         Tour potentialElite = manager.getElite();
@@ -58,10 +67,10 @@ void SingletonFacade::getBestTour() {
     }
 
     this->best = currentElite;
-    finalReport(base, currentElite, iterations);
+    finalReport(currentElite, base, iterations);
 }
 
-SingletonFacade::SingletonFacade(int cNum, int tNum, double minFitness) : fitness(minFitness), best() {
+SingletonFacade::SingletonFacade(int cNum, int tNum, double minFitness) : best(), fitness(minFitness) {
     generateCities(cNum);
     generateTours(tNum);
     manager = TourManager(tours);

@@ -19,7 +19,7 @@ int main() {
 //
 //    SingletonFacade sf(cities, tours, fitnessThreshold);
 //    sf.run();
-    SingletonFacade sf(50, 100, 0.0005);
+    SingletonFacade sf(25,10,0.13);
     sf.run();
     return 0;
 }

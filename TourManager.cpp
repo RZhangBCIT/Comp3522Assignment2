@@ -10,14 +10,11 @@
 int TourManager::findElite(vector<Tour> vec) {
     double minFitness;
     int eliteIndex = 0;
-    Tour elite;
-    elite = vec[0];
-    minFitness = elite.getFitness();
+    minFitness = vec[0].getFitness();
 
     for (int i = 0; i < (int) vec.size(); i++) {
         double fitness = vec[i].getFitness();
-        if (fitness < minFitness) {
-            elite = vec[i];
+        if (fitness > minFitness) {
             minFitness = fitness;
             eliteIndex = i;
         }
