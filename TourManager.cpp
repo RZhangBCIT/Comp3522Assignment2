@@ -115,8 +115,7 @@ void TourManager::improve() {
 
 ostream &operator<<(ostream &os, TourManager &tourManager) {
     for (Tour &t : tourManager.getTours){
-        os << t << "TourManager overloading <<" << endl;
+        cout << t << endl;
     }
-    return os;
 }
 

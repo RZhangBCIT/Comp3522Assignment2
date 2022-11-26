@@ -41,7 +41,7 @@ double City::getDistance(City &other) {
     int yPos = abs(longitude - other.longitude);
     // a^2 + b^2 = c^2
     double a2b2 = pow(xPos, 2) + pow(yPos, 2);
-    double distance = sqrt(a2b2);
+    double distance = pow(a2b2, 0.5);
     return distance;
 }
 

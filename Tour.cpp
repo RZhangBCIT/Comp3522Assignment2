@@ -5,6 +5,7 @@
 #include "Tour.hpp"
 #include <random>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 void Tour::randomizeOrder() {
@@ -24,10 +25,11 @@ void Tour::checkFitness() {
 
 double Tour::getDistance() {
     double distance = 0;
-    for (int i = 0; i < (int) cities.size() - 1; i++) {
+    for (int i = 0; i < (int) cities.size() - 1; ++i) {
         distance += cities[i].getDistance(cities[i+1]);
     }
-    distance += cities[0].getDistance(cities[cities.size()]);
+    distance += cities[0].getDistance(cities[cities.size() - 1]);
+    return distance;
 }
 
 void Tour::mutate() {
@@ -43,11 +45,11 @@ void Tour::mutate() {
             swap(cities[0], cities[i]);
             continue;
         }
-        if (i == (int) cities.size()) {
-            swap(cities[cities.size() - 1], cities[i]);
+        if (i == (int) cities.size() - 1) {
+            swap(cities[cities.size() - 2], cities[i]);
             continue;
         }
-        double beforeOrAfter =distribution(generator);
+        double beforeOrAfter = distribution(generator);
         if (beforeOrAfter < 0.5) {
             swap(cities[i - 1], cities[i]);
         } else {
@@ -91,7 +93,7 @@ void swapTour(Tour &first, Tour &second) {
 ostream &operator << (ostream &os, Tour &tour) {
     os << "Distance: " << tour.getDistance() << endl << "Cities: ";
     for (City &c : tour.cities) {
-        os << c;
+        os << c << ", ";
     }
     return os;
 }

@@ -16,11 +16,12 @@ void SingletonFacade::report(Tour &newTour, Tour &oldTour, double distance, int 
     } else {
         cout << "No improvement to distance" << endl;
     }
+    cout << "----------------------------------------------------" << endl;
 }
 
 void SingletonFacade::finalReport(Tour &final, Tour &initial, int iterations) {
-    cout << "Iterations complete! Final Results: " << endl;
     report(final, initial, initial.getDistance(), iterations);
+    cout << "Iterations complete!" << endl << "Final Results: " << endl;
     cout << "Fitness target achieved: " << boolalpha << (fitness <= final.getFitness()) << endl;
     cout << "Best tour: " << final << endl;
     cout << "Initial tour: " << initial << endl;
