@@ -1,5 +1,5 @@
-//Name: Ray Zhang,
-//Student# : A01288597,
+//Name: Ray Zhang, Leanne Holmes
+//Student# : A01288597, A01250217
 
 #include <iostream>
 #include "SingletonFacade.hpp"
