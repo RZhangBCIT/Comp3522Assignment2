@@ -47,15 +47,58 @@ public:
      * @param other a Tour class to be copied
      */
     Tour(const Tour &other);
+    /**
+     * Checks the fitness of this tour.
+     */
     void checkFitness();
+    /**
+     * Mutates this tour, swapping the order of cities randomly.
+     */
     void mutate();
+    /**
+     * Add a city to this tour.
+     * @param city City object to be added
+     */
     void addCity(City &city);
+    /**
+     * Gets the fitness of this tour.
+     * @return double representing the fitness
+     */
     double getFitness();
+    /**
+     * Gets the total distance of this tour.
+     * @return double representing the total distance
+     */
     double getDistance();
+    /**
+     * Checks if a city is part of this tour.
+     * @param city City object to be checked
+     * @return true if city is in this tour, else false
+     */
     bool hasCity(City &city);
+    /**
+     * Gets the list of cities in this tour.
+     * @return a vector of City objects
+     */
     vector<City>& getCities();
+    /**
+     * Overloaded = operator to set one city equal to another.
+     * @param other a City to be set equal to
+     * @return the current city, set equal to the other
+     */
     Tour & operator = (Tour other);
+    /**
+     * Overloaded << function for printing tour out.
+     * @param os ostream object
+     * @param tour a Tour object
+     * @return ostream object with the Tour variables added to cout
+     */
     friend ostream &operator << (ostream &os, Tour &tour);
+    /**
+     * Helper function for overloaded = operator.
+     * @param first a tour
+     * @param second a different tour
+     */
     friend void swapTour(Tour &first, Tour &second);
 };
 
